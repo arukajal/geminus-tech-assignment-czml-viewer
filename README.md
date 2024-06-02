@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+### 1. Documentation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Code Structure
 
-## Available Scripts
+**React Components**
 
-In the project directory, you can run:
+- **`CesiumViewer.jsx`**: Main component that initializes the CesiumJS viewer, loads the CZML data source, calculates satellite positions, and displays the FOV cone dynamically. 
 
-### `npm start`
+#### Helper Functions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **`calculatePositionAtTime(tleLine1, tleLine2, date)`**: Computes the satellite's position at a specific time using TLE data.
+- **`calculateFovFootprint(height, fovAngle)`**: Calculates the footprint area of the FOV on Earth's surface.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Data Sources
 
-### `npm test`
+- **TLE Data**: Two-line element sets for calculating satellite positions.
+  - `tleLine1` and `tleLine2` are the two lines of data for the satellite.
+- **CZML Data**: The `simple.czml` file contains the satellite definitions and paths.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Assumptions Made
 
-### `npm run build`
+- The TLE data is accurate and up-to-date.
+- The CZML file is correctly formatted and accessible from the given path.
+- The viewer's imagery provider is set to Cesium's default Ion imagery.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 3. Instructions to Run the Application
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Node.js and npm should be installed on your machine.
+- Access to the Cesium Ion token for imagery.
 
-### `npm run eject`
+#### Setup
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1. **Clone the repository**:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```bash
+   git clone <repository_url>
+   cd <repository_directory>
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. **Install dependencies**:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+   ```bash
+   npm install
+   ```
 
-## Learn More
+3. **Place the `simple.czml` file**:
+   
+   Ensure that `simple.czml` is in the `public` directory of your React project.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. **Add Cesium Ion Token**:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   Update the Cesium Ion token in the `CesiumViewer.jsx` file if needed.
 
-### Code Splitting
+5. **Start the application**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+   ```bash
+   npm start
+   ```
 
-### Analyzing the Bundle Size
+6. **Access the application**:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+   Open your web browser and navigate to `http://localhost:3000`.
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

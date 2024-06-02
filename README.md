@@ -35,7 +35,7 @@
 1. **Clone the repository**:
 
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/arukajal/geminus-tech-assignment-czml-viewer.git
    cd <repository_directory>
    ```
 
